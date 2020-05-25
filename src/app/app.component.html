@@ -1,0 +1,28 @@
+<div class="conntailer p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-body">
+        <img src="../assets/img/angular.jpg" width="200" alt="weather Logo" >
+        <form (submit)="submitLocation(cityName, countryCode)">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="City Name" #cityName>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Country Code" #countryCode>
+          </div>
+          <button class="btn btn-primary btn-block mt-2">Get weather</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="weather" class="card card-body">
+        <p>Temperature: {{weather.main.temp}} K</p>
+        <p>Latitud: {{weather.coord.lat}} °</p>
+        <p>Longitud: {{weather.coord.lon}} °</p>
+        <p>Humidity: {{weather.main.humidity}} %</p>
+        <p>pressure: {{weather.main.pressure}}</p>
+        <p>Description: {{weather.weather[0].description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
